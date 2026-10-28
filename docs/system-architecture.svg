@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1142" viewBox="0 0 1900 1142" role="img" aria-labelledby="figure-title figure-desc">
+  <title id="figure-title">Architecture of the provenance-linked literature memory system</title>
+  <desc id="figure-desc">Three stages show Wiki construction, controlled read-only Wiki access during campaigns, and review of proposed future Wiki updates.</desc>
+  <metadata>
+    Icons use Font Awesome Free 4.7.0 by Dave Gandy, https://fontawesome.com.
+    Font Awesome SVG and icon content is licensed under CC BY 4.0.
+  </metadata>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#25313D" />
+    </marker>
+    <marker id="green-arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#14833B" />
+    </marker>
+    <style>
+      .panel{fill:#FFFFFF;stroke:#718096;stroke-width:2.2}.panel-b{fill:#FFFFFF;stroke:#1769AA;stroke-width:2.8}.panel-c{fill:#FFFFFF;stroke:#7752B3;stroke-width:2.2;stroke-dasharray:11 7}
+      .card{fill:#FAFBFC;stroke:#8492A6;stroke-width:2.1}.agent{fill:#FFF8F1;stroke:#E86A17;stroke-width:2.4}.code{fill:#F4F8FD;stroke:#1769AA;stroke-width:2.4}.wiki{fill:#F2FBF5;stroke:#14833B;stroke-width:2.7}.review{fill:#F8F5FC;stroke:#6941A5;stroke-width:2.5}.future{fill:#FAFBFC;stroke:#718096;stroke-width:2.1;stroke-dasharray:9 6}
+      .title{font-family:"Times New Roman",Times,serif;font-size:31px;font-weight:700;fill:#111827}.card-title{font-family:"Times New Roman",Times,serif;font-size:30px;font-weight:700;fill:#111827;text-anchor:middle}.card-text{font-family:"Times New Roman",Times,serif;font-size:24px;fill:#27364A;text-anchor:middle}.note{font-family:"Times New Roman",Times,serif;font-size:24px;fill:#344B63}.note-strong{font-family:"Times New Roman",Times,serif;font-size:24px;font-weight:700;fill:#14833B}.icon{font-family:FontAwesome;font-size:42px;text-anchor:middle;dominant-baseline:middle}
+      .arrow{fill:none;stroke:#25313D;stroke-width:2.5;marker-end:url(#arrow)}.cycle{fill:none;stroke:#25313D;stroke-width:2.5}.support{fill:none;stroke:#536273;stroke-width:2.1}.green{fill:none;stroke:#14833B;stroke-width:2.8;stroke-dasharray:10 7;marker-end:url(#green-arrow)}.future-line{fill:none;stroke:#718096;stroke-width:2.3;stroke-dasharray:9 6;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <!-- A -->
+  <rect class="panel" x="12" y="10" width="1876" height="230" rx="15" />
+  <text class="title" x="38" y="50">A</text>
+  <text class="title" x="88" y="50">Construct provenance-linked literature memory</text>
+  <rect class="card" x="70" y="74.5" width="260" height="135" rx="12" data-card="Literature" data-stage="A" />
+  <text class="icon" x="200" y="114" fill="#465565" dominant-baseline="middle" data-card="Literature"></text>
+  <text class="card-title" x="200" y="160" dominant-baseline="middle" data-card="Literature">Literature</text>
+  <text class="card-text" x="200" y="185" dominant-baseline="middle" data-card="Literature">source corpus</text>
+  <rect class="agent" x="375" y="74.5" width="340" height="135" rx="12" data-card="Extraction" data-stage="A" />
+  <text class="icon" x="545" y="114" fill="#E86A17" dominant-baseline="middle" data-card="Extraction"></text>
+  <text class="card-title" x="545" y="160" dominant-baseline="middle" data-card="Extraction">Extraction</text>
+  <text class="card-text" x="545" y="185" dominant-baseline="middle" data-card="Extraction">claims and concepts</text>
+  <rect class="agent" x="760" y="74.5" width="330" height="135" rx="12" data-card="Create Wiki pages" data-stage="A" />
+  <text class="icon" x="925" y="114" fill="#E86A17" dominant-baseline="middle" data-card="Create Wiki pages"></text>
+  <text class="card-title" x="925" y="160" dominant-baseline="middle" data-card="Create Wiki pages">Create Wiki pages</text>
+  <text class="card-text" x="925" y="185" dominant-baseline="middle" data-card="Create Wiki pages">plan and link information</text>
+  <rect class="code" x="1135" y="74.5" width="310" height="135" rx="12" data-card="Deterministic validation" data-stage="A" />
+  <text class="icon" x="1290" y="114" fill="#1769AA" dominant-baseline="middle" data-card="Deterministic validation"></text>
+  <text class="card-title" x="1290" y="160" dominant-baseline="middle" data-card="Deterministic validation">Validation</text>
+  <text class="card-text" x="1290" y="185" dominant-baseline="middle" data-card="Deterministic validation">schema, anchors, and state</text>
+  <rect class="wiki" x="1490" y="74.5" width="340" height="135" rx="12" data-card="Wiki v1" data-stage="A" />
+  <text class="icon" x="1660" y="114" fill="#14833B" dominant-baseline="middle" data-card="Wiki v1"></text>
+  <text class="card-title" x="1660" y="160" dominant-baseline="middle" data-card="Wiki v1">Wiki v1</text>
+  <text class="card-text" x="1660" y="185" dominant-baseline="middle" data-card="Wiki v1">validated source-linked pages</text>
+  <!-- B -->
+  <rect class="panel-b" x="12" y="258" width="1876" height="576" rx="15" />
+  <text class="title" x="38" y="300">B</text>
+  <text class="title" x="88" y="300">Simulate experimental campaign</text>
+  <text class="note-strong" x="925" y="340">read-only</text>
+  <!-- fixed B grid: each horizontal arrow = 30 units -->
+  <rect class="agent" x="35" y="404.5" width="280" height="145" rx="12" data-card="Researcher" data-stage="B" />
+  <text class="icon" x="175" y="449" fill="#E86A17" dominant-baseline="middle" data-card="Researcher"></text>
+  <text class="card-title" x="175" y="495" dominant-baseline="middle" data-card="Researcher">Researcher</text>
+  <text class="card-text" x="175" y="520" dominant-baseline="middle" data-card="Researcher">selects one candidate</text>
+  <rect class="code" x="345" y="404.5" width="280" height="145" rx="12" data-card="Lab lookup" data-stage="B" />
+  <text class="icon" x="485" y="449" fill="#1769AA" dominant-baseline="middle" data-card="Lab lookup"></text>
+  <text class="card-title" x="485" y="495" dominant-baseline="middle" data-card="Lab lookup">Lab lookup</text>
+  <text class="card-text" x="485" y="520" dominant-baseline="middle" data-card="Lab lookup">accepted result</text>
+  <rect class="card" x="655" y="404.5" width="280" height="145" rx="12" data-card="Observation ledger" data-stage="B" />
+  <text class="icon" x="795" y="449" fill="#465565" dominant-baseline="middle" data-card="Observation ledger"></text>
+  <text class="card-title" x="795" y="495" dominant-baseline="middle" data-card="Observation ledger">Observation ledger</text>
+  <text class="card-text" x="795" y="520" dominant-baseline="middle" data-card="Observation ledger">persistent artifact</text>
+  <rect class="agent" x="965" y="404.5" width="280" height="145" rx="12" data-card="Reporter" data-stage="B" />
+  <text class="icon" x="1105" y="449" fill="#E86A17" dominant-baseline="middle" data-card="Reporter"></text>
+  <text class="card-title" x="1105" y="495" dominant-baseline="middle" data-card="Reporter">Reporter</text>
+  <text class="card-text" x="1105" y="520" dominant-baseline="middle" data-card="Reporter">evaluates new result</text>
+  <rect class="card" x="1275" y="404.5" width="280" height="145" rx="12" data-card="Campaign report" data-stage="B" />
+  <text class="icon" x="1415" y="449" fill="#465565" dominant-baseline="middle" data-card="Campaign report"></text>
+  <text class="card-title" x="1415" y="495" dominant-baseline="middle" data-card="Campaign report">Campaign report</text>
+  <text class="card-text" x="1415" y="520" dominant-baseline="middle" data-card="Campaign report">updated after each result</text>
+  <rect class="card" x="1585" y="404.5" width="280" height="145" rx="12" data-card="Campaign evidence" data-stage="B" />
+  <text class="icon" x="1725" y="449" fill="#465565" dominant-baseline="middle" data-card="Campaign evidence"></text>
+  <text class="card-title" x="1725" y="495" dominant-baseline="middle" data-card="Campaign evidence">Campaign evidence</text>
+  <text class="card-text" x="1725" y="520" dominant-baseline="middle" data-card="Campaign evidence">ledger + report</text>
+  <text class="note" x="400" y="788">next measurement cycle</text>
+  <rect class="card" x="815" y="619.5" width="330" height="145" rx="11" data-card="Work directory" data-stage="B" />
+  <text class="icon" x="980" y="664" fill="#465565" dominant-baseline="middle" data-card="Work directory"></text>
+  <text class="card-title" x="980" y="710" dominant-baseline="middle" data-card="Work directory">Work directory</text>
+  <text class="card-text" x="980" y="735" dominant-baseline="middle" data-card="Work directory">scripts, heuristics, and logs</text>
+  <!-- C -->
+  <rect class="panel-c" x="12" y="854" width="1876" height="276" rx="15" />
+  <text class="title" x="38" y="896">C</text>
+  <text class="title" x="88" y="896">Evaluate report-derived memory proposals</text>
+  <!-- fixed C grid: each horizontal arrow = 20 units -->
+  <rect class="agent" x="55" y="944.5" width="360" height="155" rx="12" data-card="Proposal agent" data-stage="C" />
+  <text class="icon" x="235" y="994" fill="#E86A17" dominant-baseline="middle" data-card="Proposal agent"></text>
+  <text class="card-title" x="235" y="1040" dominant-baseline="middle" data-card="Proposal agent">Proposal agent</text>
+  <text class="card-text" x="235" y="1065" dominant-baseline="middle" data-card="Proposal agent">reads campaign evidence</text>
+  <rect class="card" x="446" y="944.5" width="390" height="155" rx="12" data-card="Structured edit plans" data-stage="C" />
+  <text class="icon" x="641" y="994" fill="#465565" dominant-baseline="middle" data-card="Structured edit plans"></text>
+  <text class="card-title" x="641" y="1040" dominant-baseline="middle" data-card="Structured edit plans">Structured edit plans</text>
+  <text class="card-text" x="641" y="1065" dominant-baseline="middle" data-card="Structured edit plans">page-level proposals</text>
+  <rect class="review" x="867" y="944.5" width="390" height="155" rx="12" data-card="Chemist assessment" data-stage="C" />
+  <text class="icon" x="1062" y="994" fill="#6941A5" dominant-baseline="middle" data-card="Chemist assessment"></text>
+  <text class="card-title" x="1062" y="1040" dominant-baseline="middle" data-card="Chemist assessment">Chemist assessment</text>
+  <text class="card-text" x="1062" y="1065" fill="#56308D" dominant-baseline="middle" data-card="Chemist assessment">utility rating</text>
+  <rect class="future" x="1288" y="944.5" width="250" height="155" rx="12" data-card="Wiki v2" data-stage="C" />
+  <text class="icon" x="1413" y="994" fill="#718096" dominant-baseline="middle" data-card="Wiki v2"></text>
+  <text class="card-title" x="1413" y="1040" fill="#536273" dominant-baseline="middle" data-card="Wiki v2">Wiki v2</text>
+  <text class="card-text" x="1413" y="1065" dominant-baseline="middle" data-card="Wiki v2">update knowledge</text>
+  <rect class="future" x="1569" y="944.5" width="280" height="155" rx="12" data-card="Future campaigns" data-stage="C" />
+  <text class="icon" x="1709" y="994" fill="#718096" dominant-baseline="middle" data-card="Future campaigns"></text>
+  <text class="card-title" x="1709" y="1040" fill="#536273" dominant-baseline="middle" data-card="Future campaigns">Future campaigns</text>
+  <text class="card-text" x="1709" y="1065" dominant-baseline="middle" data-card="Future campaigns">reuse knowledge</text>
+  <path id="a-link-1" d="M330 142 H375" class="arrow" />
+  <path id="a-link-2" d="M715 142 H760" class="arrow" />
+  <path id="a-link-3" d="M1090 142 H1135" class="arrow" />
+  <path id="a-link-4" d="M1445 142 H1490" class="arrow" />
+  <path id="b-link-1" d="M315 477 H345" class="arrow" />
+  <path id="b-link-2" d="M625 477 H655" class="arrow" />
+  <path id="b-link-3" d="M935 477 H965" class="arrow" />
+  <path id="b-link-4" d="M1245 477 H1275" class="arrow" />
+  <path id="b-link-5" d="M1555 477 H1585" class="arrow" />
+  <path id="c-link-1" d="M415 1022 H446" class="arrow" />
+  <path id="c-link-2" d="M836 1022 H867" class="arrow" />
+  <path id="c-link-3" d="M1257 1022 H1288" class="future-line" />
+  <path id="c-link-4" d="M1538 1022 H1569" class="future-line" />
+  <path id="wiki-input-1" d="M1658 209.5 V357 H175 V404.5" class="green" />
+  <path id="wiki-input-2" d="M1105 357 V404.5" class="green" />
+  <path id="cycle-ledger" d="M795 804 V549.5" class="cycle" />
+  <path id="cycle-report" d="M1415 804 V549.5" class="cycle" />
+  <path id="evidence-input" d="M1725 549.5 V920 H235 V944.5" class="arrow" />
+<path id="wiki-proposal-input" class="green" d="M175 357 H23 V1022 H55" /><path id="cycle-bus" class="cycle" d="M175 804 H1415" /><path id="cycle-researcher" class="arrow" d="M175 804 V549.5" /><path id="work-cycle" class="cycle" d="M980 764.5 V804" /></svg>

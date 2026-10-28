@@ -1,0 +1,106 @@
+[project]
+name = "wiki-agents"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gitpython>=3.1.45",
+    "httpx>=0.28.1",
+    "networkx>=3.6.1",
+    "openai>=2.0.0",
+    "openai-agents[docker]>=0.19.0",
+    "pydantic>=2.13.4",
+    "pymupdf>=1.28.0",
+    "python-dotenv>=1.2.3",
+    "pyyaml>=6.0.3",
+    "qdrant-client>=1.16.0",
+    "scipy>=1.17.0",
+    "starlette>=0.52.1,<1.0",
+    "uvicorn>=0.41.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "ruff>=0.16.2",
+    "ty>=0.0.70",
+]
+
+trace = ["weave>=0.53.6"]
+
+[project.scripts]
+create-plans = "wiki_agents.orchestrator.stages.create_plans:main"
+extract-concepts = "wiki_agents.orchestrator.stages.extract_concepts:main"
+start-lab = "wiki_agents.simulated_lab.cli:main"
+run-experimentalist = "wiki_agents.orchestrator.experimentalist_cli:main"
+wiki-agent = "wiki_agents.orchestrator:main"
+write-wiki = "wiki_agents.orchestrator.stages.write_wiki:main"
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "standard"
+pythonVersion = "3.12"
+venvPath = "."
+venv = ".venv"
+
+[tool.ty.analysis]
+strict-equality-semantics = true
+strict-generic-narrowing = true
+
+[tool.ty.rules]
+all = "error"
+
+[tool.ruff]
+required-version = ">=0.16.2"
+target-version = "py312"
+
+[tool.ruff.lint]
+preview = true
+select = ["ALL"]
+ignore = [
+    "docstring-missing-exception", # Existing docstrings do not use a sectioned convention.
+    "docstring-missing-returns", # Existing docstrings do not use a sectioned convention.
+    "f-string-in-exception", # Direct exception messages remain readable and local.
+    "incorrect-blank-line-before-class", # Incompatible with D211.
+    "implicit-namespace-package", # Required so direct execution does not shadow `agents`.
+    "line-contains-todo", # TODO ownership belongs in the issue tracker, not source syntax.
+    "line-too-long", # LLM prompts and other prose should retain semantic line breaks.
+    "missing-copyright-notice", # No copyright holder or header template is configured.
+    "missing-todo-author", # TODO ownership belongs in the issue tracker, not source syntax.
+    "missing-todo-link", # TODO ownership belongs in the issue tracker, not source syntax.
+    "multi-line-summary-second-line", # Incompatible with D212.
+    "raw-string-in-exception", # Direct exception messages remain readable and local.
+    "raise-vanilla-args", # Dedicated exception classes are not useful for every message.
+    "undocumented-public-class", # Public API documentation is maintained separately.
+    "undocumented-public-function", # Public API documentation is maintained separately.
+    "undocumented-public-init", # Public API documentation is maintained separately.
+    "undocumented-public-method", # Public API documentation is maintained separately.
+    "undocumented-public-module", # Public API documentation is maintained separately.
+    "undocumented-public-package", # Public API documentation is maintained separately.
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "any-type", # Test doubles intentionally accept heterogeneous values.
+    "assert", # Assertions are the expected pytest API.
+    "implicit-namespace-package", # The tests directory is not an importable package.
+    "magic-value-comparison", # Literal expected values make tests easier to read.
+    "missing-return-type-private-function", # Local test doubles are intentionally concise.
+    "missing-return-type-undocumented-public-function", # Test functions always return None.
+    "missing-type-function-argument", # Pytest fixtures are dynamically injected.
+    "missing-type-kwargs", # Test doubles intentionally accept arbitrary keyword arguments.
+    "no-self-use", # Small local test doubles mirror production protocols.
+    "private-member-access", # Tests intentionally verify private implementation details.
+    "import-private-name", # Tests intentionally import private helpers as units.
+    "unused-async", # Async test doubles must match production call signatures.
+    "unused-function-argument", # Test doubles must match production call signatures.
+    "unused-lambda-argument", # Test doubles must match production call signatures.
+    "unused-method-argument", # Test doubles must match production call signatures.
+]
+"tests/test_embedding.py" = [
+    "builtin-argument-shadowing", # The fake must mirror the external client's API.
+]
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
